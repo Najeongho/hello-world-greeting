@@ -54,5 +54,6 @@ node {
         ./jmter.sh -n -t $WORKSPACE/src/pt/Hello_World_Test_Plan.jmx -l $WORKSPACE/test_report.jtl''';
 
         step([$class: 'ArtifactArchiver', artifacts: '*/*.jtl'])
+        
     }
 }
