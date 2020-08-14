@@ -1,4 +1,4 @@
-node {
+node('master') {
 
     stage('Poll'){
         checkout scm 
@@ -37,7 +37,7 @@ node {
     
 }
 
-node {
+node('docker_pt') {
 
     stage ('Start Tomcat'){
         sh '''cd /home/jenkins/tomcat/bin
