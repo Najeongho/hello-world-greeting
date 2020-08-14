@@ -37,7 +37,7 @@ node('master') {
     
 }
 
-node(label: 'docker_pt') {
+node('docker_pt') {
 
     stage ('Start Tomcat'){
         sh '''cd /home/jenkins/tomcat/bin
