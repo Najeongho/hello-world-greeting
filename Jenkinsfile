@@ -6,7 +6,7 @@ node {
 
     stage('Build & Unit test'){
         sh 'mvn clean verify -DskipITs=true';
-        juit '**/target/surefire-reports/TEST-*.xml'
+        junit '**/target/surefire-reports/TEST-*.xml'
         archive 'target/*.jar'
     }
 
