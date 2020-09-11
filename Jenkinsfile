@@ -34,7 +34,8 @@ node('master') {
     //     server.upload(uploadSpec)
     // }
     
-    
+
+
 }
 
 node('docker_pt') {
