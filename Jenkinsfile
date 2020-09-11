@@ -10,9 +10,9 @@ node('master') {
         archive 'target/*.jar'
     }
 
-    stage('Static Code Analysis'){
-        sh 'mvn clean verify sonar:sonar -Dsonar.projectName=example-project -Dsonar.projectKey=example-project -Dsonar.projectVersion=$BUILD_NUMBER';
-    }
+//     stage('Static Code Analysis'){
+//         sh 'mvn clean verify sonar:sonar -Dsonar.projectName=example-project -Dsonar.projectKey=example-project -Dsonar.projectVersion=$BUILD_NUMBER';
+//     }
 
     stage('Integration Test'){
         sh 'mvn clean verify -Dsurefire.skip=true';
@@ -49,11 +49,11 @@ node('docker_pt') {
         sh 'cp target/hello-0.0.1.war /home/jenkins/tomcat/webapps/';
     }
 
-    stage('Performance Testing'){
-        sh '''cd /opt/jmeter/bin/
-        ./jmter.sh -n -t $WORKSPACE/src/pt/Hello_World_Test_Plan.jmx -l $WORKSPACE/test_report.jtl''';
-
-        step([$class: 'ArtifactArchiver', artifacts: '*/*.jtl'])
-        
-    }
+//     stage('Performance Testing'){
+//         sh '''cd /opt/jmeter/bin/
+//         ./jmter.sh -n -t $WORKSPACE/src/pt/Hello_World_Test_Plan.jmx -l $WORKSPACE/test_report.jtl''';
+//
+//         step([$class: 'ArtifactArchiver', artifacts: '*/*.jtl'])
+//
+//     }
 }
